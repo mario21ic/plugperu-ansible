@@ -6,13 +6,13 @@
   become_method: sudo
   tasks:
     - name: Install gdb packages
-      apt: names={{ item }} install_recommends=no update_cache=true force_apt_get=true
+      apt: name={{ item }} install_recommends=no update_cache=true force_apt_get=true
       with_items:
         - gdbserver
         - gdb
 
     - name: Enabling ptrace
-      ansible.posix.sysctl:
+      sysctl:
         name: kernel.yama.ptrace_scope
         value: '0'
         sysctl_file: /etc/sysctl.d/10-ptrace.conf
