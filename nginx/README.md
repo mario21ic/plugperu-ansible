@@ -4,6 +4,7 @@ Instalar requisitos:
 ```
 pip install ansible
 pip install molecule[docker]
+pip install pytest-testinfra
 ```
 
 Ejecutar playbook:
